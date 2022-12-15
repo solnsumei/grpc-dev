@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "./tutorial";
+
+// Service definition
+service Tutorial {
+    // Sends a greeting
+    rpc sayHello (HelloRequest) returns (HelloReply) {}
+    rpc treasureChest (Offering) returns (Chest) {}
+}
+
+// Request message
+message HelloRequest {
+    string name = 1;
+}
+
+// Response message
+message HelloReply {
+    string message = 1;
+}
+
+message Offering {
+    string gift = 1;
+    int32 value = 2;
+}
+
+message Chest {
+    int32 amount = 1;
+    bool success = 2;
+}
